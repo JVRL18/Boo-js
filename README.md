@@ -1,4 +1,4 @@
-# DiscordJS bot boilerplate
+# DiscordJS Boo Framework
 
 ## Integrantes: <a href="https://www.linkedin.com/in/joao-vitor-ribeiro-de-lima-dev/">João Vitor Ribeiro</a>
 
@@ -17,7 +17,6 @@
   &emsp;|-->events<br>
   &emsp;|-->models<br>
   &emsp;|index.js<br>
-|.env<br>
 |.gitignore<br>
 |package.json<br>
 |readme.md<br>
@@ -28,15 +27,11 @@
 
 2 - Selecione a pasta onde descompactou este repositório.
 
-3 - Abra seu terminal na pasta do projeto e execute o comando `npm i`.
+3 - Execute install.bat
 
-4 - Coloque suas chaves (moongose, discord developer) em .env em suas respectivas variáveis.
+4 - Preencha com o dados requisitados.
 
-5 - Escolha um prefixo para seu bot e coloque ele no respectivo campo em `.env`
-
-5 - Em package.json cole o ID do seu servidor após `local=` em scripts, ex: `local=123123` ou altere `local=` para `global`.
-
-6 - Execute `npm run dev`
+5 - Pronto para desenvolver seus comandos em src/commands!
 
 Para abrir este projeto você necessita das seguintes ferramentas:
 
@@ -44,34 +39,8 @@ Para abrir este projeto você necessita das seguintes ferramentas:
 
 ## 🗃 Histórico de lançamentos
 
-* 0.1.0 - 25/10/2022
+* 0.1.0 - 16/11/2022
     * Lançamento do projeto base.
-* 0.2.0 - 02/11/2022
-    * Add pokemon unite profile lookup feature as required
-    * Create temporary voice chat features
-    * Start working on owner interface configuration page
-* 0.2.1 - 02/11/2022
-    * Changed folder structure on commands now it's based by utility
-    * Changed command "finder" so it searchs recursively in commands folder
-    * Finish add/remove feature on owner config menu
-    * Change temp_vc.js variables to acess database variables
-    * Change event voice state variables to access database variables
-* 0.3.0 - 04/11/2022
-    * Fix bugs of text commands register errors.
-    * New economy commands: Give, Withdraw, deposit.
-    * New moderation command dev start: Kick.
-    * Changed messageCreate commands execute arguments to get all parms by an array.
-    * Removed index.js
-* 0.3.1 - 04/11/2022
-    * Bug fixes in kick commands.
-    * Variable input1 at messageCreate changed to first element of args.
-    * Added index.js
-* 0.4.0 - 05/11/2022
-    * Add experimental music [play] command
-    * Fix give command bugs
-* 0.4.1 - 07/11/2022
-    * Add optin to checking users via slash in [check] command
-    * Add new data model for transactions ids
     
 ## 📋 Licença/License
 
