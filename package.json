@@ -1,6 +1,6 @@
 {
   "name": "boojs",
-  "version": "0.4.1",
+  "version": "0.0.1",
   "description": "betterbot boilerplate",
   "main": "./src/index.js",
   "scripts": {
@@ -13,5 +13,19 @@
     "node-fetch": "^2.6.7",
     "nodemon": "^2.0.20",
     "readline-sync": "^1.4.10"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JVRL18/Boo-js.git"
+  },
+  "keywords": [
+    "discord",
+    "bot",
+    "framework"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JVRL18/Boo-js/issues"
+  },
+  "homepage": "https://github.com/JVRL18/Boo-js#readme"
 }
