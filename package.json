@@ -1,0 +1,17 @@
+{
+  "name": "boojs",
+  "version": "0.4.1",
+  "description": "betterbot boilerplate",
+  "main": "./src/index.js",
+  "scripts": {
+    "dev": "nodemon ./src/index.js local=1028568704377700423"
+  },
+  "author": "jvrl18",
+  "dependencies": {
+    "discord.js": "^14.6.0",
+    "mongoose": "^6.7.0",
+    "node-fetch": "^2.6.7",
+    "nodemon": "^2.0.20",
+    "readline-sync": "^1.4.10"
+  }
+}
