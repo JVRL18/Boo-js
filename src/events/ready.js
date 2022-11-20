@@ -1,5 +1,5 @@
-const { EmbedBuilder } = require("discord.js");
 const fs = require("fs");
+const { EmbedBuilder } = require('discord.js')
 module.exports = {
   name: "ready",
   once: true,
@@ -27,34 +27,48 @@ module.exports = {
         if (data[name] === undefined) {
           data[name] = [name]
           fs.writeFileSync('./src/commands/aliases/cmds.json', JSON.stringify(data, null, 2))
-        } 
+        }
       }
     }
 
-    const commandArgs = process.argv.find(arg => arg.startsWith("local=") || arg === "global")
+    //set slash commands (I think)
+    const commands = [...client.commands].map(x => x[1].data)
+    await client.application.commands.set(commands)
+    console.log('[!] Commands set globally');
 
-    if (commandArgs) {
-      const commands = [...client.commands].map(x => x[1].data)
 
-      if (commandArgs.startsWith("local=")) {
-        await client.guilds.fetch(commandArgs.split("=")[1]).then(async guild => await guild.commands.set(commands))
-        return console.log('[!] Commands set locally')
-      } else {
-        await client.application.commands.set(commands)
-        return console.log('[!] Commands set globally');
-      }
+
+    //load auto_start_commands
+    const commandFiles = [];
+    (findCommands = async (path = "ready_cmds") => {
+      fs.readdirSync(`./src/${path}`).filter(async (file) => {
+        if (file.endsWith(".js")) return commandFiles.push(file);
+        findCommands(path + `/${file}`);
+      });
+    })();
+
+    for (const file of commandFiles) {
+
+      let commander;
+      const getCommands = (name, path = "ready_cmds") => {
+        const dirr = `./src/${path}`;
+
+        fs.readdirSync(dirr).filter((find) => {
+          if (find === name) {
+            commander = `../${path}/${find}`;
+          } else {
+            if (find.endsWith("js") === true) return;
+            return getCommands(name, path + `/${find}`);
+          }
+        });
+      };
+      getCommands(file);
+
+      const command = require(commander);
+
+      command.execute(client)
+
     }
-    
-    //send hello
-    let servers = client.guilds.cache.map((g) => g.name).length;
-    const channel = client.channels.cache.get("1035675689204072448");
-    x = servers > 1 ? "server" : "servers";
-
-    let embed = new EmbedBuilder()
-      .setColor("#00FF00")
-      .setFooter({ text: `✔️ ONLINE! in ${servers} ${x}` })
-      .setTimestamp();
-    //channel.send({ embeds: [embed] });
 
   },
 };

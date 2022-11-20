@@ -1,5 +1,4 @@
 const fs = require("fs");
-const { justAText } = require("../assets/embeds/global.js");
 
 module.exports = {
   name: "messageCreate",
